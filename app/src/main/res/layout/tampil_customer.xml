@@ -9,9 +9,6 @@
             name="cust"
             type="com.michaeledward.mobileatmajayarental.entity.Customer" />
 
-        <variable
-            name="activity"
-            type="com.michaeledward.mobileatmajayarental." />
     </data>
 
     <RelativeLayout
@@ -24,7 +21,6 @@
             android:orientation="vertical"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            tools:context=".twoway.DetailDataPegawai"
             android:id="@+id/layout">
 
             <TextView
@@ -124,14 +120,5 @@
                 android:layout_marginBottom="10dp"/>
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:backgroundTint="#bd4e4e"
-            android:onClick="@{activity.btnBackClickListener}"
-            android:text="BACK"/>
     </RelativeLayout>
 </layout>

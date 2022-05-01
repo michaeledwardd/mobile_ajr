@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAtmaJayaRental">
         <activity
+            android:name=".DriverActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PegawaiActivity"
+            android:exported="true" />
+        <activity
             android:name=".CustomerActivity"
             android:exported="true" />
         <activity
@@ -26,7 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

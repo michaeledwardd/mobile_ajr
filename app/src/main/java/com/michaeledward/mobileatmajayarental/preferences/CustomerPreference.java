@@ -31,7 +31,7 @@ public class CustomerPreference {
         editor = sharedPreferences.edit();
     }
 
-    public void setLogin(Customer customer){
+    public void SetLogin(Customer customer){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_ID_CUSTOMER, customer.getId_customer());
         editor.putString(KEY_NAMA_CUSTOMER, customer.getNama_customer());
@@ -81,7 +81,7 @@ public class CustomerPreference {
                 no_sim, usia);
     }
 
-    public boolean checkLogin(){
+    public boolean CheckLogin(){
         return sharedPreferences.getBoolean(IS_LOGIN, false);
     }
 

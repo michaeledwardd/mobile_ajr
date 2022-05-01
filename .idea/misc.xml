@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_customer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_driver.xml" value="0.20416666666666666" />
+        <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_pegawai.xml" value="0.20416666666666666" />
         <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/activity_splashscreen.xml" value="0.20416666666666666" />
         <entry key="..\:/Kuliah Informatika S1/SEMESTER 6 INF/INFT 3160 Proyek Pengembangan Perangkat Lunak/Mobile AJR/app/src/main/res/layout/tampil_customer.xml" value="0.22" />

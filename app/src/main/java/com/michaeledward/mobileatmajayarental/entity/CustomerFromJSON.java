@@ -14,6 +14,9 @@ public class CustomerFromJSON extends BaseObservable{
     @SerializedName("nama_customer")
     private String nama_customer;
 
+    @SerializedName("alamat_customer")
+    private String alamat_customer;
+
     @SerializedName("jenis_kelamin")
     private String jenis_kelamin;
 
@@ -32,21 +35,26 @@ public class CustomerFromJSON extends BaseObservable{
     @SerializedName("no_sim")
     private int no_sim;
 
+    @SerializedName("password")
+    private String password;
+
     @SerializedName("usia")
     private int usia;
 
-    public CustomerFromJSON(String id_customer, String email_customer, String nama_customer,
+    public CustomerFromJSON(String id_customer, String email_customer, String nama_customer, String alamat_customer,
                             String jenis_kelamin, String no_telp, String status_berkas, String asal_customer,
-                            int nomor_kartupengenal, int no_sim, int usia) {
+                            int nomor_kartupengenal, int no_sim, String password, int usia) {
         this.id_customer = id_customer;
         this.email_customer = email_customer;
         this.nama_customer = nama_customer;
+        this.alamat_customer = alamat_customer;
         this.jenis_kelamin = jenis_kelamin;
         this.no_telp = no_telp;
         this.status_berkas = status_berkas;
         this.asal_customer = asal_customer;
         this.nomor_kartupengenal = nomor_kartupengenal;
         this.no_sim = no_sim;
+        this.password = password;
         this.usia = usia;
     }
 
@@ -72,6 +80,14 @@ public class CustomerFromJSON extends BaseObservable{
 
     public void setNama_customer(String nama_customer) {
         this.nama_customer = nama_customer;
+    }
+
+    public String getAlamat_customer() {
+        return alamat_customer;
+    }
+
+    public void setAlamat_customer(String alamat_customer) {
+        this.alamat_customer = alamat_customer;
     }
 
     public String getJenis_kelamin() {
@@ -120,6 +136,14 @@ public class CustomerFromJSON extends BaseObservable{
 
     public void setNo_sim(int no_sim) {
         this.no_sim = no_sim;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getUsia() {
