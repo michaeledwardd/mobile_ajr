@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CustomerActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="cust"
+            type="com.michaeledward.mobileatmajayarental.entity.Customer" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WELCOME CUSTOMER"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/layout">
+
+            <TextView
+                android:id="@+id/id_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Customer"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nama_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Customer"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/alamat_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Customer"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/email_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Customer"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/jenis_kelamin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/asal_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asal Customer"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/no_sim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor SIM"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nomor_kartupengenal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor Kartu Pengenal"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/usia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usia"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#4287f5"
+                android:text="Logout" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

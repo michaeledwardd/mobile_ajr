@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -33,9 +34,12 @@ import com.michaeledward.mobileatmajayarental.entity.CustomerResponse;
 import com.michaeledward.mobileatmajayarental.entity.Pegawai;
 import com.michaeledward.mobileatmajayarental.entity.PegawaiFromJSON;
 import com.michaeledward.mobileatmajayarental.entity.PegawaiResponse;
+import com.michaeledward.mobileatmajayarental.entity.Driver;
+import com.michaeledward.mobileatmajayarental.entity.DriverFromJSON;
+import com.michaeledward.mobileatmajayarental.entity.DriverResponse;
 import com.michaeledward.mobileatmajayarental.entity.UserLogin;
 import com.michaeledward.mobileatmajayarental.preferences.CustomerPreference;
-
+import com.michaeledward.mobileatmajayarental.preferences.DriverPreference;
 import com.michaeledward.mobileatmajayarental.preferences.PegawaiPreference;
 
 import org.json.JSONObject;
@@ -47,9 +51,9 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityLoginBinding binding;
     private UserLogin loginData;
-
-    private CustomerPreference customerPreference;
+    private CustomerPreference prefcustomer;
     private PegawaiPreference pegawaiPreference;
+    private DriverPreference driverpref;
 
     private RequestQueue queue;
 
@@ -61,12 +65,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         queue = Volley.newRequestQueue(this.getApplicationContext());
 
         loginData = new UserLogin();
-
-        binding.setLogin(loginData);
+        binding.setLoginData(loginData);
         binding.btnLogin.setOnClickListener(this);
 
-        customerPreference = new CustomerPreference(this);
+        prefcustomer = new CustomerPreference(this);
         pegawaiPreference = new PegawaiPreference(this);
+        driverpref = new DriverPreference(this);
         CheckLogin();
     }
 
@@ -96,13 +100,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void CheckLogin(){
-        if(customerPreference.CheckLogin()){
+        if(prefcustomer.CheckLogin()){
+            Toast.makeText(this, "Login customer", Toast.LENGTH_SHORT).show();
             Intent move = new Intent(this, CustomerActivity.class);
             startActivity(move);
             finish();
         }
         else if(pegawaiPreference.CheckLogin()){
             Intent move = new Intent(this, PegawaiActivity.class);
+            startActivity(move);
+            finish();
+        }
+        else if(driverpref.CheckLogin()){
+            Toast.makeText(this, "Login Driver", Toast.LENGTH_SHORT).show();
+            Intent move = new Intent(this, DriverActivity.class);
             startActivity(move);
             finish();
         }
@@ -122,16 +133,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 PegawaiResponse pegawaiResponse = gson.fromJson(response, PegawaiResponse.class);
                 PegawaiFromJSON pegawaiLogin = pegawaiResponse.getUser();
 
-                if (customerLogin.getId_customer() != null) {
-//                    Toast.makeText(LoginActivity.this, customerResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                DriverResponse driverResponse = gson.fromJson(response, DriverResponse.class);
+                DriverFromJSON driverLogin = driverResponse.getUser();
 
+                if (customerLogin.getId_customer() != null) {
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
 
                     Customer forPrefCustomer = new Customer(customerLogin.getId_customer(),
-                            customerLogin.getEmail_customer(),
                             customerLogin.getNama_customer(),
                             customerLogin.getAlamat_customer(),
+                            customerLogin.getEmail_customer(),
                             customerLogin.getJenis_kelamin(),
                             customerLogin.getNo_telp(),
                             customerLogin.getStatus_berkas(),
@@ -140,15 +152,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             customerLogin.getPassword(),
                             customerLogin.getNo_sim(),
                             customerLogin.getUsia());
-
-                    LoginActivity.this.customerPreference.SetLogin(forPrefCustomer);
+                    prefcustomer.SetLogin(forPrefCustomer);
                     CheckLogin();
                 }
                 //hanya bisa manager yang bisa login
-                else if(pegawaiLogin.getId_pegawai() != 0 && pegawaiLogin.getId_role() != 1){
+                else if(pegawaiLogin.getId_pegawai() != null && pegawaiLogin.getNama_pegawai().equals("michael edward")){
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
-
+                    Toast.makeText(LoginActivity.this, "Pegawai", Toast.LENGTH_SHORT).show();
                     Pegawai forPrefPegawai = new Pegawai(pegawaiLogin.getId_pegawai(),
                             pegawaiLogin.getId_role(),
                             pegawaiLogin.getNama_pegawai(),
@@ -158,7 +169,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             pegawaiLogin.getEmail(),
                             pegawaiLogin.getPassword(),
                             pegawaiLogin.getIs_aktif());
-                    LoginActivity.this.pegawaiPreference.SetLogin(forPrefPegawai);
+                    pegawaiPreference.SetLogin(forPrefPegawai);
+                    CheckLogin();
+                }
+                else if(driverLogin.getId_driver() != null){
+                    Intent returnIntent = new Intent();
+                    setResult(Activity.RESULT_OK, returnIntent);
+                    Toast.makeText(LoginActivity.this, "Driver", Toast.LENGTH_SHORT).show();
+                    Driver forPrefDriver = new Driver(driverLogin.getId_driver(),
+                            driverLogin.getNama_driver(),
+                            driverLogin.getJenis_kelamin(),
+                            driverLogin.getAlamat(),
+                            driverLogin.getEmail_driver(),
+                            driverLogin.getStatus_tersedia(),
+                            driverLogin.getBiaya_sewa_driver(),
+                            driverLogin.getNo_telp(),
+                            driverLogin.getRerata_rating(),
+                            driverLogin.getPassword());
+                    driverpref.SetLogin(forPrefDriver);
                     CheckLogin();
                 }
                 else{
@@ -208,6 +236,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return requestBody.getBytes(StandardCharsets.UTF_8);
             }
         };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(stringRequest);
     }
 

@@ -9,7 +9,7 @@ public class CustomerResponse {
     @SerializedName("data")
     private CustomerFromJSON user;
 
-    private String getMessage(){
+    public String getMessage(){
         return message;
     }
 

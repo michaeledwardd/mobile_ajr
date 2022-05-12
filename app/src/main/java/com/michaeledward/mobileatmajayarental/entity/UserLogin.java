@@ -3,11 +3,16 @@ package com.michaeledward.mobileatmajayarental.entity;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.google.gson.annotations.SerializedName;
 import com.michaeledward.mobileatmajayarental.BR;
 
 public class UserLogin extends BaseObservable{
+    @SerializedName("email")
     private String email;
+
+    @SerializedName("password")
     private String password;
+
 
     public UserLogin(){
 

@@ -30,37 +30,39 @@ public class PegawaiPreference {
 
     public void SetLogin(Pegawai pegawai){
         editor.putBoolean(IS_LOGIN, true);
-        editor.putInt(KEY_ID_PEGAWAI, pegawai.getId_pegawai());
-        editor.putInt(KEY_ID_ROLE, pegawai.getId_role());
+        editor.putString(KEY_ID_PEGAWAI, pegawai.getId_pegawai());
+        editor.putString(KEY_ID_ROLE, pegawai.getId_role());
         editor.putString(KEY_NAMA_PEGAWAI, pegawai.getNama_pegawai());
         editor.putString(KEY_FOTO_PEGAWAI, pegawai.getFoto_pegawai());
         editor.putString(KEY_JENIS_KELAMIN, pegawai.getJenis_kelamin());
         editor.putString(KEY_ALAMAT, pegawai.getAlamat());
         editor.putString(KEY_EMAIL, pegawai.getEmail());
         editor.putString(KEY_PASSWORD, pegawai.getPassword());
-        editor.putInt(KEY_IS_AKTIF, pegawai.getIs_aktif());
+        editor.putString(KEY_IS_AKTIF, pegawai.getIs_aktif());
+
+        editor.commit();
     }
 
     public Pegawai GetPegawaiNow(){
-        int id_pegawai;
-        int id_role;
+        String id_pegawai;
+        String id_role;
         String nama_pegawai;
         String foto_pegawai;
         String jenis_kelamin;
         String alamat;
         String email;
         String password;
-        int is_aktif;
+        String is_aktif;
 
-        id_pegawai = sharedPreferences.getInt(KEY_ID_PEGAWAI, 0);
-        id_role = sharedPreferences.getInt(KEY_ID_ROLE, 0);
+        id_pegawai = sharedPreferences.getString(KEY_ID_PEGAWAI, null);
+        id_role = sharedPreferences.getString(KEY_ID_ROLE, null);
         nama_pegawai = sharedPreferences.getString(KEY_NAMA_PEGAWAI, null);
         foto_pegawai = sharedPreferences.getString(KEY_FOTO_PEGAWAI, null);
         jenis_kelamin = sharedPreferences.getString(KEY_JENIS_KELAMIN, null);
         alamat = sharedPreferences.getString(KEY_ALAMAT, null);
         email = sharedPreferences.getString(KEY_EMAIL, null);
         password = sharedPreferences.getString(KEY_PASSWORD, null);
-        is_aktif = sharedPreferences.getInt(KEY_IS_AKTIF, 0);
+        is_aktif = sharedPreferences.getString(KEY_IS_AKTIF, null);
 
         return new Pegawai(id_pegawai, id_role,
                 nama_pegawai, foto_pegawai,

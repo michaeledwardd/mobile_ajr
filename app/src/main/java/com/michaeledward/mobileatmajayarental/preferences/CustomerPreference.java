@@ -41,10 +41,12 @@ public class CustomerPreference {
         editor.putString(KEY_JENIS_KELAMIN, customer.getJenis_kelamin());
         editor.putString(KEY_NO_TELP, customer.getNo_telp());
         editor.putString(KEY_STATUS_BERKAS, customer.getStatus_berkas());
-        editor.putInt(KEY_NOMOR_KARTUPENGENAL, customer.getNomor_kartupengenal());
-        editor.putInt(KEY_USIA, customer.getUsia());
-        editor.putInt(KEY_NO_SIM, customer.getNo_sim());
+        editor.putString(KEY_NOMOR_KARTUPENGENAL, customer.getNomor_kartupengenal());
+        editor.putString(KEY_USIA, customer.getUsia());
+        editor.putString(KEY_NO_SIM, customer.getNo_sim());
         editor.putString(KEY_PASSWORD, customer.getPassword());
+
+        editor.commit();
     }
 
     public Customer GetCustomerNow(){
@@ -56,10 +58,10 @@ public class CustomerPreference {
         String no_telp;
         String status_berkas;
         String asal_customer;
-        int nomor_kartupengenal;
+        String nomor_kartupengenal;
         String password;
-        int no_sim;
-        int usia;
+        String no_sim;
+        String usia;
 
         id_customer = sharedPreferences.getString(KEY_ID_CUSTOMER, null);
         nama_customer = sharedPreferences.getString(KEY_NAMA_CUSTOMER, null);
@@ -69,10 +71,10 @@ public class CustomerPreference {
         no_telp = sharedPreferences.getString(KEY_NO_TELP, null);
         status_berkas = sharedPreferences.getString(KEY_STATUS_BERKAS, null);
         asal_customer = sharedPreferences.getString(KEY_ASAL_CUSTOMER, null);
-        nomor_kartupengenal = sharedPreferences.getInt(KEY_NOMOR_KARTUPENGENAL, 0);
+        nomor_kartupengenal = sharedPreferences.getString(KEY_NOMOR_KARTUPENGENAL, null);
         password = sharedPreferences.getString(KEY_PASSWORD, null);
-        no_sim = sharedPreferences.getInt(KEY_NO_SIM, 0);
-        usia = sharedPreferences.getInt(KEY_USIA, 0);
+        no_sim = sharedPreferences.getString(KEY_NO_SIM, null);
+        usia = sharedPreferences.getString(KEY_USIA, null);
 
         return new Customer(id_customer,nama_customer,
                 alamat_customer, email_customer,
@@ -81,7 +83,7 @@ public class CustomerPreference {
                 no_sim, usia);
     }
 
-    public boolean CheckLogin(){
+    public boolean CheckLogin() {
         return sharedPreferences.getBoolean(IS_LOGIN, false);
     }
 

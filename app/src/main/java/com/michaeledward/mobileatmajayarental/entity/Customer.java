@@ -4,8 +4,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import com.michaeledward.mobileatmajayarental.BR;
 
-public class Customer extends BaseObservable
-{
+public class Customer extends BaseObservable {
     private String id_customer;
     private String nama_customer;
     private String alamat_customer;
@@ -14,16 +13,18 @@ public class Customer extends BaseObservable
     private String no_telp;
     private String status_berkas;
     private String asal_customer;
-    private int nomor_kartupengenal;
+    private String nomor_kartupengenal;
     private String password;
-    private int no_sim;
-    private int usia;
+    private String no_sim;
+    private String usia;
 
-    public Customer() {}
+    public Customer() {
+    }
 
-    public Customer(String id_customer, String nama_customer, String alamat_customer, String email_customer,
-                    String jenis_kelamin, String no_telp, String status_berkas, String asal_customer,
-                    int nomor_kartupengenal, String password, int no_sim, int usia) {
+    public Customer(String id_customer, String nama_customer, String alamat_customer,
+                    String email_customer, String jenis_kelamin, String no_telp, String status_berkas,
+                    String asal_customer, String nomor_kartupengenal, String password, String no_sim,
+                    String usia) {
         this.id_customer = id_customer;
         this.nama_customer = nama_customer;
         this.alamat_customer = alamat_customer;
@@ -45,7 +46,7 @@ public class Customer extends BaseObservable
 
     public void setId_customer(String id_customer) {
         this.id_customer = id_customer;
-        notifyPropertyChanged(BR.id_customer);
+        notifyPropertyChanged(BR.id_driver);
     }
 
     @Bindable
@@ -119,11 +120,11 @@ public class Customer extends BaseObservable
     }
 
     @Bindable
-    public int getNomor_kartupengenal() {
+    public String getNomor_kartupengenal() {
         return nomor_kartupengenal;
     }
 
-    public void setNomor_kartupengenal(int nomor_kartupengenal) {
+    public void setNomor_kartupengenal(String nomor_kartupengenal) {
         this.nomor_kartupengenal = nomor_kartupengenal;
         notifyPropertyChanged(BR.nomor_kartupengenal);
     }
@@ -139,21 +140,21 @@ public class Customer extends BaseObservable
     }
 
     @Bindable
-    public int getNo_sim() {
+    public String getNo_sim() {
         return no_sim;
     }
 
-    public void setNo_sim(int no_sim) {
+    public void setNo_sim(String no_sim) {
         this.no_sim = no_sim;
         notifyPropertyChanged(BR.no_sim);
     }
 
     @Bindable
-    public int getUsia() {
+    public String getUsia() {
         return usia;
     }
 
-    public void setUsia(int usia) {
+    public void setUsia(String usia) {
         this.usia = usia;
         notifyPropertyChanged(BR.usia);
     }

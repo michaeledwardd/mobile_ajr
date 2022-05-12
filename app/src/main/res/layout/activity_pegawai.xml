@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PegawaiActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="peg"
+            type="com.michaeledward.mobileatmajayarental.entity.Pegawai" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:text="WELCOME PEGAWAI"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/layout">
+
+            <TextView
+                android:id="@+id/id_pegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Pegawai"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/id_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posisi"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nama_pegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pegawai"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/jk_pegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/alamat_pegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat pegawai"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/email_pegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Pegawai"
+                android:textStyle="bold"/>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#4287f5"
+                android:text="Logout" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

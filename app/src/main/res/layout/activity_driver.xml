@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DriverActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="drv"
+            type="com.michaeledward.mobileatmajayarental.entity.Driver" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WELCOME DRIVER"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/layout">
+
+            <TextView
+                android:id="@+id/id_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nama_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/alamat_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/email_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/jenis_kelamin_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/biaya_sewa_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Biaya Sewa Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/no_telp_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor Telepon Driver"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/rerata_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rerata Rating"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/status_tersedia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Tersedia"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#4287f5"
+                android:text="Logout" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

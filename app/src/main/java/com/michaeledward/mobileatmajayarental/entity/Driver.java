@@ -11,27 +11,25 @@ public class Driver extends BaseObservable{
     private String jenis_kelamin;
     private String alamat;
     private String email_driver;
-    private String password_driver;
     private String status_tersedia;
-    private int is_aktif;
-    private double biaya_sewa_driver;
+    private String biaya_sewa_driver;
     private String no_telp;
-    private float rerata_rating;
+    private String rerata_rating;
+    private String password;
 
     public Driver(String id_driver, String nama_driver, String jenis_kelamin, String alamat,
-                  String email_driver, String password_driver, String status_tersedia, int is_aktif,
-                  double biaya_sewa_driver, String no_telp, float rerata_rating) {
+                  String email_driver, String status_tersedia,
+                  String biaya_sewa_driver, String no_telp, String rerata_rating, String password) {
         this.id_driver = id_driver;
         this.nama_driver = nama_driver;
         this.jenis_kelamin = jenis_kelamin;
         this.alamat = alamat;
         this.email_driver = email_driver;
-        this.password_driver = password_driver;
         this.status_tersedia = status_tersedia;
-        this.is_aktif = is_aktif;
         this.biaya_sewa_driver = biaya_sewa_driver;
         this.no_telp = no_telp;
         this.rerata_rating = rerata_rating;
+        this.password = password;
     }
 
     @Bindable
@@ -83,16 +81,6 @@ public class Driver extends BaseObservable{
     }
 
     @Bindable
-    public String getPassword_driver() {
-        return password_driver;
-    }
-
-    public void setPassword_driver(String password_driver) {
-        this.password_driver = password_driver;
-        notifyPropertyChanged(BR.password_driver);
-    }
-
-    @Bindable
     public String getStatus_tersedia() {
         return status_tersedia;
     }
@@ -103,21 +91,11 @@ public class Driver extends BaseObservable{
     }
 
     @Bindable
-    public int getIs_aktif() {
-        return is_aktif;
-    }
-
-    public void setIs_aktif(int is_aktif) {
-        this.is_aktif = is_aktif;
-        notifyPropertyChanged(BR.is_aktif);
-    }
-
-    @Bindable
-    public double getBiaya_sewa_driver() {
+    public String getBiaya_sewa_driver() {
         return biaya_sewa_driver;
     }
 
-    public void setBiaya_sewa_driver(double biaya_sewa_driver) {
+    public void setBiaya_sewa_driver(String biaya_sewa_driver) {
         this.biaya_sewa_driver = biaya_sewa_driver;
         notifyPropertyChanged(BR.biaya_sewa_driver);
     }
@@ -133,12 +111,22 @@ public class Driver extends BaseObservable{
     }
 
     @Bindable
-    public float getRerata_rating() {
+    public String getRerata_rating() {
         return rerata_rating;
     }
 
-    public void setRerata_rating(float rerata_rating) {
+    public void setRerata_rating(String rerata_rating) {
         this.rerata_rating = rerata_rating;
         notifyPropertyChanged(BR.rerata_rating);
+    }
+
+    @Bindable
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+        notifyPropertyChanged(BR.password);
     }
 }

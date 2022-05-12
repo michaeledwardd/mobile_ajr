@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName;
 public class PegawaiFromJSON extends BaseObservable{
 
     @SerializedName("id_pegawai")
-    private int id_pegawai;
+    private String id_pegawai;
 
     @SerializedName("id_role")
-    private int id_role;
+    private String id_role;
 
     @SerializedName("nama_pegawai")
     private String nama_pegawai;
@@ -30,9 +30,9 @@ public class PegawaiFromJSON extends BaseObservable{
     private String password;
 
     @SerializedName("is_aktif")
-    private int is_aktif;
+    private String is_aktif;
 
-    public PegawaiFromJSON(int id_pegawai, int id_role, String nama_pegawai, String foto_pegawai, String jenis_kelamin, String alamat, String email, String password, int is_aktif) {
+    public PegawaiFromJSON(String id_pegawai, String id_role, String nama_pegawai, String foto_pegawai, String jenis_kelamin, String alamat, String email, String password, String is_aktif) {
         this.id_pegawai = id_pegawai;
         this.id_role = id_role;
         this.nama_pegawai = nama_pegawai;
@@ -44,19 +44,19 @@ public class PegawaiFromJSON extends BaseObservable{
         this.is_aktif = is_aktif;
     }
 
-    public int getId_pegawai() {
+    public String getId_pegawai() {
         return id_pegawai;
     }
 
-    public void setId_pegawai(int id_pegawai) {
+    public void setId_pegawai(String id_pegawai) {
         this.id_pegawai = id_pegawai;
     }
 
-    public int getId_role() {
+    public String getId_role() {
         return id_role;
     }
 
-    public void setId_role(int id_role) {
+    public void setId_role(String id_role) {
         this.id_role = id_role;
     }
 
@@ -108,11 +108,11 @@ public class PegawaiFromJSON extends BaseObservable{
         this.password = password;
     }
 
-    public int getIs_aktif() {
+    public String getIs_aktif() {
         return is_aktif;
     }
 
-    public void setIs_aktif(int is_aktif) {
+    public void setIs_aktif(String is_aktif) {
         this.is_aktif = is_aktif;
     }
 }

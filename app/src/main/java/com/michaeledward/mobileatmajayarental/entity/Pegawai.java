@@ -6,17 +6,18 @@ import androidx.databinding.Bindable;
 import com.michaeledward.mobileatmajayarental.BR;
 
 public class Pegawai extends BaseObservable{
-    private int id_pegawai;
-    private int id_role;
+    private String id_pegawai;
+    private String id_role;
     private String nama_pegawai;
     private String foto_pegawai;
     private String jenis_kelamin;
     private String alamat;
     private String email;
     private String password;
-    private int is_aktif;
+    private String is_aktif;
 
-    public Pegawai(int id_pegawai, int id_role, String nama_pegawai, String foto_pegawai, String jenis_kelamin, String alamat, String email, String password, int is_aktif) {
+    public Pegawai(String id_pegawai, String id_role, String nama_pegawai, String foto_pegawai,
+                   String jenis_kelamin, String alamat, String email, String password, String is_aktif) {
         this.id_pegawai = id_pegawai;
         this.id_role = id_role;
         this.nama_pegawai = nama_pegawai;
@@ -29,22 +30,22 @@ public class Pegawai extends BaseObservable{
     }
 
     @Bindable
-    public int getId_pegawai() {
+    public String getId_pegawai() {
         return id_pegawai;
     }
 
-    public void setId_pegawai(int id_pegawai) {
+    public void setId_pegawai(String id_pegawai) {
         this.id_pegawai = id_pegawai;
         notifyPropertyChanged(BR.id_pegawai);
 
     }
 
     @Bindable
-    public int getId_role() {
+    public String getId_role() {
         return id_role;
     }
 
-    public void setId_role(int id_role) {
+    public void setId_role(String id_role) {
         this.id_role = id_role;
         notifyPropertyChanged(BR.id_role);
     }
@@ -110,11 +111,11 @@ public class Pegawai extends BaseObservable{
     }
 
     @Bindable
-    public int getIs_aktif() {
+    public String getIs_aktif() {
         return is_aktif;
     }
 
-    public void setIs_aktif(int is_aktif) {
+    public void setIs_aktif(String is_aktif) {
         this.is_aktif = is_aktif;
         notifyPropertyChanged(BR.is_aktif);
     }
