@@ -1,9 +1,7 @@
-package com.michaeledward.mobileatmajayarental.customer;
+package com.michaeledward.mobileatmajayarental.driver;
 
-import static com.android.volley.Request.Method.DELETE;
 import static com.android.volley.Request.Method.GET;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,13 +11,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,11 +23,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.michaeledward.mobileatmajayarental.R;
-import com.michaeledward.mobileatmajayarental.api.CustomerApi;
-import com.michaeledward.mobileatmajayarental.customer.Promo;
+import com.michaeledward.mobileatmajayarental.api.DriverApi;
+import com.michaeledward.mobileatmajayarental.preferences.DriverPreference;
 
 import org.json.JSONObject;
 
@@ -41,31 +35,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShowPromo extends AppCompatActivity {
+public class RiwayatTransaksiDrv extends AppCompatActivity {
     public static final int LAUNCH_ADD_ACTIVITY = 123;
-    private SwipeRefreshLayout srPromo;
-    private PromoAdapter adapter;
-    private SearchView svPromo;
+    private SwipeRefreshLayout srRiwayatTransaksi;
+    private RiwayatTransaksiDrvAdapter adapter;
+    private SearchView svRiwayatTransaksi;
     private LinearLayout layoutLoading;
     private RequestQueue queue;
+    DriverPreference driverPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_promo);
+        setContentView(R.layout.activity_riwayat_transaksi_drv);
+        driverPreference = new DriverPreference(this);
 
         // Pendeklarasian request queue
         queue = Volley.newRequestQueue(this);
         layoutLoading = findViewById(R.id.layout_loading);
-        srPromo = findViewById(R.id.sr_promo);
-        svPromo = findViewById(R.id.sv_promo);
-        srPromo.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srRiwayatTransaksi = findViewById(R.id.sr_riwayattransaksi);
+        svRiwayatTransaksi = findViewById(R.id.sv_riwayattransaksi);
+        srRiwayatTransaksi.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getAllPromo();
+                getAllRiwayatTransaksi();
             }
         });
-        svPromo.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        svRiwayatTransaksi.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -77,12 +73,12 @@ public class ShowPromo extends AppCompatActivity {
             }
         });
 
-        RecyclerView rvPromo = findViewById(R.id.rv_promo);
-        adapter = new PromoAdapter(new ArrayList<>(), this);
-        rvPromo.setLayoutManager(new LinearLayoutManager(ShowPromo.this,
+        RecyclerView rvRiwayatTransaksi = findViewById(R.id.rv_riwayat_transaksi);
+        adapter = new RiwayatTransaksiDrvAdapter(new ArrayList<>(), this);
+        rvRiwayatTransaksi.setLayoutManager(new LinearLayoutManager(RiwayatTransaksiDrv.this,
                 LinearLayoutManager.VERTICAL, false));
-        rvPromo.setAdapter(adapter);
-        getAllPromo();
+        rvRiwayatTransaksi.setAdapter(adapter);
+        getAllRiwayatTransaksi();
     }
 
     @Override
@@ -90,37 +86,37 @@ public class ShowPromo extends AppCompatActivity {
             (int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == LAUNCH_ADD_ACTIVITY && resultCode == Activity.RESULT_OK)
-            getAllPromo();
+            getAllRiwayatTransaksi();
     }
 
-    private void getAllPromo() {
-        srPromo.setRefreshing(true);
+    private void getAllRiwayatTransaksi() {
+        srRiwayatTransaksi.setRefreshing(true);
         StringRequest stringRequest = new StringRequest(GET,
-                CustomerApi.SHOWPROMO_URL, new Response.Listener<String>() {
+                DriverApi.SHOWTRANSAKSI_URL + driverPreference.GetIDDriver(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
 
-                PromoResponse promoResponse =
-                        gson.fromJson(response, PromoResponse.class);
-                adapter.setPromoList(promoResponse.getPromoList());
-                adapter.getFilter().filter(svPromo.getQuery());
-                Toast.makeText(ShowPromo.this,
-                        promoResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                srPromo.setRefreshing(false);
+                RiwayatTransaksiDrvResponse riwayatTransaksiDrvResponse =
+                        gson.fromJson(response, RiwayatTransaksiDrvResponse.class);
+                adapter.setRiwayatTransaksiDrvList(riwayatTransaksiDrvResponse.getRiwayatTransaksiList());
+                adapter.getFilter().filter(svRiwayatTransaksi.getQuery());
+                Toast.makeText(RiwayatTransaksiDrv.this,
+                        riwayatTransaksiDrvResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                srRiwayatTransaksi.setRefreshing(false);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                srPromo.setRefreshing(false);
+                srRiwayatTransaksi.setRefreshing(false);
                 try {
                     String responseBody = new String(error.networkResponse.data,
                             StandardCharsets.UTF_8);
                     JSONObject errors = new JSONObject(responseBody);
-                    Toast.makeText(ShowPromo.this,
+                    Toast.makeText(RiwayatTransaksiDrv.this,
                             errors.getString("message"), Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
-                    Toast.makeText(ShowPromo.this, e.getMessage(),
+                    Toast.makeText(RiwayatTransaksiDrv.this, e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -148,5 +144,4 @@ public class ShowPromo extends AppCompatActivity {
             layoutLoading.setVisibility(View.GONE);
         }
     }
-
 }

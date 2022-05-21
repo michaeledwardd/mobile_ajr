@@ -83,6 +83,11 @@ public class CustomerPreference {
                 no_sim, usia);
     }
 
+    public String GetIDCustomer()
+    {
+        return sharedPreferences.getString(KEY_ID_CUSTOMER, null);
+    }
+
     public boolean CheckLogin() {
         return sharedPreferences.getBoolean(IS_LOGIN, false);
     }

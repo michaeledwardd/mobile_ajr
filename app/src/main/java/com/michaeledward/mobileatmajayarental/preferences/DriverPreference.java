@@ -75,6 +75,11 @@ public class DriverPreference {
                 no_telp, rerata_rating, password);
     }
 
+    public String GetIDDriver()
+    {
+        return sharedPreferences.getString(KEY_ID_DRIVER, null);
+    }
+
     public boolean CheckLogin()
     {
         return sharedPreferences.getBoolean(IS_LOGIN, false);

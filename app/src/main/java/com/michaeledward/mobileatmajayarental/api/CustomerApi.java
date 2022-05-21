@@ -5,5 +5,5 @@ public class CustomerApi {
     public static final String API_URL = BASE_URL + "api/";
     public static final String SHOWPROMO_URL     = API_URL + "promo";
     public static final String SHOWMOBIL_URL     = API_URL + "mobil";
-
+    public static final String SHOWTRANSAKSI_URL = API_URL + "riwayattransaksi/";
 }

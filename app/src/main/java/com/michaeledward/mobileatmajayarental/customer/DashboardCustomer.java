@@ -14,6 +14,7 @@ public class DashboardCustomer extends AppCompatActivity {
     private Button btnshowmobil;
     private Button btnshowpromo;
     private Button btnprofile;
+    private Button btnriwayatTransaksiCustomer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class DashboardCustomer extends AppCompatActivity {
         btnshowmobil = findViewById(R.id.btnshowmobil);
         btnshowpromo = findViewById(R.id.btnshowpromo);
         btnprofile = findViewById(R.id.btnprofile);
+        btnriwayatTransaksiCustomer = findViewById(R.id.btnriwayatTransaksiCustomer);
 
         btnprofile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,14 @@ public class DashboardCustomer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent moveHome = new Intent(DashboardCustomer.this, ShowMobil.class);
+                startActivity(moveHome);
+            }
+        });
+
+        btnriwayatTransaksiCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent moveHome = new Intent(DashboardCustomer.this, RiwayatTransaksiCust.class);
                 startActivity(moveHome);
             }
         });

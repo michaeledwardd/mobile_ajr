@@ -17,6 +17,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAtmaJayaRental">
         <activity
+            android:name=".manager.InputTanggal"
+            android:exported="true" />
+        <activity
+            android:name=".manager.DashboardManager"
+            android:exported="true" />
+        <activity
+            android:name=".driver.RiwayatTransaksiDrv"
+            android:exported="true" />
+        <activity
+            android:name=".driver.DashboardDriver"
+            android:exported="true" />
+        <activity
+            android:name=".customer.RiwayatTransaksiCust"
+            android:exported="true" />
+        <activity
             android:name=".customer.ShowMobil"
             android:exported="true" />
         <activity

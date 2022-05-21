@@ -29,6 +29,7 @@ import com.michaeledward.mobileatmajayarental.api.UserApi;
 
 import com.michaeledward.mobileatmajayarental.customer.DashboardCustomer;
 import com.michaeledward.mobileatmajayarental.databinding.ActivityLoginBinding;
+import com.michaeledward.mobileatmajayarental.driver.DashboardDriver;
 import com.michaeledward.mobileatmajayarental.entity.Customer;
 import com.michaeledward.mobileatmajayarental.entity.CustomerFromJSON;
 import com.michaeledward.mobileatmajayarental.entity.CustomerResponse;
@@ -114,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         else if(driverpref.CheckLogin()){
             Toast.makeText(this, "Login Driver", Toast.LENGTH_SHORT).show();
-            Intent move = new Intent(this, DriverActivity.class);
+            Intent move = new Intent(this, DashboardDriver.class);
             startActivity(move);
             finish();
         }
@@ -137,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 DriverResponse driverResponse = gson.fromJson(response, DriverResponse.class);
                 DriverFromJSON driverLogin = driverResponse.getUser();
 
-                if (customerLogin != null) {
+                if (customerLogin.getId_customer() != null) {
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
 
@@ -157,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     CheckLogin();
                 }
                 //hanya bisa manager yang bisa login
-                else if(pegawaiLogin != null && pegawaiLogin.getNama_pegawai().equals("michael edward")){
+                else if(pegawaiLogin.getId_pegawai() != null && pegawaiLogin.getNama_pegawai().equals("michael edward")){
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
                     Toast.makeText(LoginActivity.this, "Pegawai", Toast.LENGTH_SHORT).show();
@@ -173,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     pegawaiPreference.SetLogin(forPrefPegawai);
                     CheckLogin();
                 }
-                else if(driverLogin != null){
+                else if(driverLogin.getId_driver() != null){
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
                     Toast.makeText(LoginActivity.this, "Driver", Toast.LENGTH_SHORT).show();

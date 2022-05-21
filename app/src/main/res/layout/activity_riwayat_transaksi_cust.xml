@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".customer.ShowPromo">
+    tools:context=".customer.RiwayatTransaksiCust">
 
     <SearchView
-        android:id="@+id/sv_promo"
+        android:id="@+id/sv_riwayattransaksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -19,22 +19,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/sr_promo"
+        android:id="@+id/sr_riwayattransaksi"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_promo">
+        app:layout_constraintTop_toBottomOf="@+id/sv_riwayattransaksi"
+        app:layout_constraintVertical_bias="0.0">
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_promo"
+            android:id="@+id/rv_riwayat_transaksi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingBottom="88dp"
-            tools:listitem="@layout/rv_item_promo" />
+            tools:listitem="@layout/rv_item_riwayattrans_cust" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <include
