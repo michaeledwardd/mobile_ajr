@@ -72,6 +72,9 @@ dependencies {
     // Volley
     implementation 'com.android.volley:volley:1.2.1'
 
+    //pdf
+    implementation 'com.itextpdf:itextg:5.5.10'
+
     // Gson
     implementation 'com.google.code.gson:gson:2.8.8'
 }

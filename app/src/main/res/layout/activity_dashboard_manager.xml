@@ -9,6 +9,39 @@
     android:background="@color/white"
     android:gravity="center">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tglawal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        android:layout_marginBottom="8dp"
+        android:hint="Masukkan tanggal awal"
+       >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputtanggalawal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tglakhir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/tglawal"
+        android:hint="Masukkan tanggal akhir"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputtanggalakhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
@@ -17,6 +50,7 @@
         android:textColor="@color/black"
         android:textSize="24dp"
         android:textAlignment="center"
+        android:layout_below="@+id/tglakhir"
         android:textStyle="bold" />
 
     <Button

@@ -40,6 +40,7 @@ import com.michaeledward.mobileatmajayarental.entity.Driver;
 import com.michaeledward.mobileatmajayarental.entity.DriverFromJSON;
 import com.michaeledward.mobileatmajayarental.entity.DriverResponse;
 import com.michaeledward.mobileatmajayarental.entity.UserLogin;
+import com.michaeledward.mobileatmajayarental.manager.DashboardManager;
 import com.michaeledward.mobileatmajayarental.preferences.CustomerPreference;
 import com.michaeledward.mobileatmajayarental.preferences.DriverPreference;
 import com.michaeledward.mobileatmajayarental.preferences.PegawaiPreference;
@@ -109,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }
         else if(pegawaiPreference.CheckLogin()){
-            Intent move = new Intent(this, PegawaiActivity.class);
+            Intent move = new Intent(this, DashboardManager.class);
             startActivity(move);
             finish();
         }
