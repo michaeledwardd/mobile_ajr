@@ -9,15 +9,17 @@
     android:background="@color/white"
     android:gravity="center">
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tglawal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true"
+        app:startIconDrawable="@drawable/ic_date_24"
         android:layout_marginBottom="8dp"
         android:hint="Masukkan tanggal awal"
-       >
+        >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputtanggalawal"
             android:layout_width="match_parent"
@@ -31,6 +33,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true"
+        app:startIconDrawable="@drawable/ic_date_24"
         android:layout_marginBottom="8dp"
         android:layout_below="@+id/tglawal"
         android:hint="Masukkan tanggal akhir"
@@ -46,7 +49,7 @@
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WLECOME MANAGER"
+        android:text="WELCOME MANAGER"
         android:textColor="@color/black"
         android:textSize="24dp"
         android:textAlignment="center"
@@ -61,7 +64,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2175eb"
-        android:text="LAPORAN PENYEWAAN"
+        android:text="LAPORAN PENYEWAAN MOBIL"
         />
 
     <Button
@@ -72,7 +75,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2175eb"
-        android:text="LAPORAN 2"
+        android:text="LAPORAN DETAIL PENDAPATAN"
         />
 
     <Button
@@ -83,7 +86,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2175eb"
-        android:text="LAPORAN 3"
+        android:text="LAPORAN TOP DRIVER BY TRANSAKSI"
         />
 
     <Button
@@ -94,7 +97,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2175eb"
-        android:text="LAPORAN 4"
+        android:text="LAPORAN TOP DRIVER BY RATING"
         />
 
     <Button
@@ -105,7 +108,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2175eb"
-        android:text="LAPORAN 5"
+        android:text="LAPORAN TOP CUSTOMER"
         />
 
 </RelativeLayout>
