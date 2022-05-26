@@ -26,6 +26,7 @@
         android:layout_below="@id/tv_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:backgroundTint="#2175eb"
         android:text="MY PROFILE"
         />
 
@@ -35,7 +36,43 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnprofile"
         android:layout_centerHorizontal="true"
-        android:text="RIWAYAT TRANSAKSI"
-        android:backgroundTint="#f5e642"/>
+        android:text="RIWAYAT TRANSAKSI DRIVER"
+        android:backgroundTint="#2175eb"/>
+
+    <Button
+        android:id="@+id/btneditprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnriwayatTransaksiDriver"
+        android:layout_centerHorizontal="true"
+        android:text="EDIT PROFILE DRIVER"
+        android:backgroundTint="#2175eb"/>
+
+    <LinearLayout
+        android:id="@+id/layoutshow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btneditprofile"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp">
+
+        <Button
+            android:id="@+id/btntidaktersedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            android:text="TIDAK TERSEDIA"
+            android:backgroundTint="#DF2424" />
+
+        <Button
+            android:id="@+id/btntersedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TERSEDIA"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#0ff513" />
+    </LinearLayout>
 
 </RelativeLayout>

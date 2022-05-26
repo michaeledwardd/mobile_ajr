@@ -17,6 +17,18 @@ public class Driver extends BaseObservable{
     private String rerata_rating;
     private String password;
 
+    public Driver(String status_tersedia){
+        this.status_tersedia = status_tersedia;
+    }
+
+    public Driver(String nama_driver, String alamat, String no_telp, String biaya_sewa_driver, String jenis_kelamin){
+        this.nama_driver = nama_driver;
+        this.jenis_kelamin = jenis_kelamin;
+        this.biaya_sewa_driver = biaya_sewa_driver;
+        this.no_telp = no_telp;
+        this.alamat = alamat;
+    }
+
     public Driver(String id_driver, String nama_driver, String jenis_kelamin, String alamat,
                   String email_driver, String status_tersedia,
                   String biaya_sewa_driver, String no_telp, String rerata_rating, String password) {

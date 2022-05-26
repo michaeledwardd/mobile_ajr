@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btnprofile"
+        android:title="Profile" />
+    <item
+        android:id="@+id/btnriwayatTransaksiCustomer"
+        android:title="Riwayat Transaksi" />
+    <item
+        android:id="@+id/btnshowmobil"
+        android:title="Show Mobil"/>
+    <item
+        android:id="@+id/btnshowpromo"
+        android:title="Show promo"
+       />
+</menu>

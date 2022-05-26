@@ -33,8 +33,11 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.michaeledward.mobileatmajayarental.PegawaiActivity;
 import com.michaeledward.mobileatmajayarental.R;
 import com.michaeledward.mobileatmajayarental.api.ManagerApi;
+import com.michaeledward.mobileatmajayarental.customer.DashboardCustomer;
+import com.michaeledward.mobileatmajayarental.customer.ShowPromo;
 import com.michaeledward.mobileatmajayarental.manager.laporandetailpendapatan.LaporanDetailPendapatanFromJSON;
 import com.michaeledward.mobileatmajayarental.manager.laporandetailpendapatan.LaporanDetailPendapatanResponse;
 import com.michaeledward.mobileatmajayarental.manager.laporanpenyewaanmobil.LaporanPenyewaanFromJSON;
@@ -62,7 +65,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class DashboardManager extends AppCompatActivity {
-    private Button btnlaporan1, btnlaporan2, btnlaporan3, btnlaporan4, btnlaporan5;
+    private Button btnlaporan1, btnlaporan2, btnlaporan3, btnlaporan4, btnlaporan5, btnprofile;
     private EditText tanggalawal, tanggalakhir;
     private RequestQueue queue;
     @Override
@@ -75,6 +78,7 @@ public class DashboardManager extends AppCompatActivity {
         btnlaporan3 = findViewById(R.id.btnlaporan3);
         btnlaporan4 = findViewById(R.id.btnlaporan4);
         btnlaporan5 = findViewById(R.id.btnlaporan5);
+        btnprofile = findViewById(R.id.btnprofile);
         tanggalawal = findViewById(R.id.inputtanggalawal);
         tanggalakhir = findViewById(R.id.inputtanggalakhir);
 
@@ -131,6 +135,14 @@ public class DashboardManager extends AppCompatActivity {
                 tanggal_awal = tanggalawal.getText().toString();
                 tanggal_akhir = tanggalakhir.getText().toString();
                 getResponseLaporanTopCustomer(tanggal_awal, tanggal_akhir);
+            }
+        });
+
+        btnprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent moveHome = new Intent(DashboardManager.this, PegawaiActivity.class);
+                startActivity(moveHome);
             }
         });
     }
@@ -401,13 +413,8 @@ public class DashboardManager extends AppCompatActivity {
         PdfPCell h2 = new PdfPCell(new Phrase("Jumlah Transaksi"));
         h2.setHorizontalAlignment(Element.ALIGN_CENTER);
         h2.setPaddingBottom(5);
-
-
         tableHeader.addCell(h1);
         tableHeader.addCell(h2);
-
-//        tableHeader.addCell(h5);
-
         // Beri warna untuk kolumn
         for (PdfPCell cells : tableHeader.getRow(0).getCells()) {
             cells.setBackgroundColor(BaseColor.PINK);
@@ -424,7 +431,7 @@ public class DashboardManager extends AppCompatActivity {
         // masukan data pegawai jadi baris
         for (LaporanTopCustomerFromJSON P : laporanTopCustomerFromJSONList) {
             tableData.addCell(P.getNama_customer());
-            
+
             tableData.addCell(String.valueOf(P.getJumlah_transaksi()));
 
 

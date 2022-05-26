@@ -80,10 +80,16 @@ public class DriverPreference {
         return sharedPreferences.getString(KEY_ID_DRIVER, null);
     }
 
+    public String GetStatusDriver(){
+        return sharedPreferences.getString(KEY_STATUS_TERSEDIA, null);
+    }
+
     public boolean CheckLogin()
     {
         return sharedPreferences.getBoolean(IS_LOGIN, false);
     }
+
+
 
     public void Logout()
     {

@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAtmaJayaRental">
         <activity
+            android:name=".driver.EditDriver"
+            android:exported="true" />
+        <activity
             android:name=".manager.InputTanggal"
             android:exported="true" />
         <activity
@@ -64,14 +67,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
         <provider
-            android:name="com.michaeledward.mobileatmajayarental.GenericFileProvider"
+            android:name=".GenericFileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 

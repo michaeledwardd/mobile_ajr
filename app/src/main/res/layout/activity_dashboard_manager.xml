@@ -111,4 +111,15 @@
         android:text="LAPORAN TOP CUSTOMER"
         />
 
+    <Button
+        android:id="@+id/btnprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnlaporan5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#2175eb"
+        android:text="PROFILE"
+        />
+
 </RelativeLayout>
