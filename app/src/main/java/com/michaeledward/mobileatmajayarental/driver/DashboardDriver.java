@@ -90,6 +90,18 @@ public class DashboardDriver extends AppCompatActivity {
                         Gson gson = new Gson();
                         DriverResponse driverResponse = gson.fromJson(response, DriverResponse.class);
                         Toast.makeText(DashboardDriver.this, driverResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        DriverFromJSON driverLogin = driverResponse.getUser();
+                        Driver forPrefDriver = new Driver(driverLogin.getId_driver(),
+                                driverLogin.getNama_driver(),
+                                driverLogin.getJenis_kelamin(),
+                                driverLogin.getAlamat(),
+                                driverLogin.getEmail_driver(),
+                                driverLogin.getStatus_tersedia(),
+                                driverLogin.getBiaya_sewa_driver(),
+                                driverLogin.getNo_telp(),
+                                driverLogin.getRerata_rating(),
+                                driverLogin.getPassword());
+                        driverPreference.SetLogin(forPrefDriver);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -142,6 +154,18 @@ public class DashboardDriver extends AppCompatActivity {
                         Gson gson = new Gson();
                         DriverResponse driverResponse = gson.fromJson(response, DriverResponse.class);
                         Toast.makeText(DashboardDriver.this, driverResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        DriverFromJSON driverLogin = driverResponse.getUser();
+                        Driver forPrefDriver = new Driver(driverLogin.getId_driver(),
+                                driverLogin.getNama_driver(),
+                                driverLogin.getJenis_kelamin(),
+                                driverLogin.getAlamat(),
+                                driverLogin.getEmail_driver(),
+                                driverLogin.getStatus_tersedia(),
+                                driverLogin.getBiaya_sewa_driver(),
+                                driverLogin.getNo_telp(),
+                                driverLogin.getRerata_rating(),
+                                driverLogin.getPassword());
+                        driverPreference.SetLogin(forPrefDriver);
                     }
                 }, new Response.ErrorListener() {
                     @Override

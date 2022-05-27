@@ -8,8 +8,7 @@
     tools:context=".MainActivity"
     android:background="@color/white"
     android:gravity="center">
-
-
+    
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tglawal"
         android:layout_width="match_parent"
@@ -24,7 +23,10 @@
             android:id="@+id/inputtanggalawal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="text"
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -42,7 +44,10 @@
             android:id="@+id/inputtanggalakhir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="text"
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

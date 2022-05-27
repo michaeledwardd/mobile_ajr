@@ -3,6 +3,7 @@ package com.michaeledward.mobileatmajayarental.manager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -68,6 +70,10 @@ public class DashboardManager extends AppCompatActivity {
     private Button btnlaporan1, btnlaporan2, btnlaporan3, btnlaporan4, btnlaporan5, btnprofile;
     private EditText tanggalawal, tanggalakhir;
     private RequestQueue queue;
+
+    final Calendar calendarku = Calendar.getInstance();
+    final Calendar calendarku2 = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +87,46 @@ public class DashboardManager extends AppCompatActivity {
         btnprofile = findViewById(R.id.btnprofile);
         tanggalawal = findViewById(R.id.inputtanggalawal);
         tanggalakhir = findViewById(R.id.inputtanggalakhir);
+
+        DatePickerDialog.OnDateSetListener dateTanggalAwal = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                calendarku.set(Calendar.YEAR, year);
+                calendarku.set(Calendar.MONTH,month);
+                calendarku.set(Calendar.DAY_OF_MONTH,day);
+
+                String myFormat="yyyy-MM-dd";
+                SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+                tanggalawal.setText(dateFormat.format(calendarku.getTime()));
+            }
+        };
+
+        tanggalawal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(DashboardManager.this, dateTanggalAwal, calendarku.get(Calendar.YEAR),calendarku.get(Calendar.MONTH),calendarku.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        DatePickerDialog.OnDateSetListener dateTanggalAkhir = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                calendarku2.set(Calendar.YEAR, year);
+                calendarku2.set(Calendar.MONTH,month);
+                calendarku2.set(Calendar.DAY_OF_MONTH,day);
+
+                String myFormat="yyyy-MM-dd";
+                SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+                tanggalakhir.setText(dateFormat.format(calendarku2.getTime()));
+            }
+        };
+
+        tanggalakhir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(DashboardManager.this, dateTanggalAkhir, calendarku2.get(Calendar.YEAR),calendarku2.get(Calendar.MONTH),calendarku2.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
         btnlaporan1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -923,13 +969,13 @@ public class DashboardManager extends AppCompatActivity {
     }
 
     private void previewPdf(File pdfFile) {
-        PackageManager packageManager = getPackageManager();
-        Intent testIntent = new Intent(Intent.ACTION_VIEW);
-        testIntent.setType("application/pdf");
-        List<ResolveInfo> list =
-                packageManager.queryIntentActivities(testIntent,
-                        PackageManager.MATCH_DEFAULT_ONLY);
-        if (list.size() > 0) {
+//        PackageManager packageManager = getPackageManager();
+//        Intent testIntent = new Intent(Intent.ACTION_VIEW);
+//        testIntent.setType("application/pdf");
+//        List<ResolveInfo> list =
+//                packageManager.queryIntentActivities(testIntent,
+//                        PackageManager.MATCH_DEFAULT_ONLY);
+//        if (list.size() > 0) {
             Uri uri;
             uri = FileProvider.getUriForFile(this, getPackageName() +
                             ".provider",
@@ -945,6 +991,6 @@ public class DashboardManager extends AppCompatActivity {
                     Intent.FLAG_GRANT_WRITE_URI_PERMISSION |
                             Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(pdfIntent);
-        }
+//        }
     }
 }
